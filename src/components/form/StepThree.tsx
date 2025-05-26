@@ -36,7 +36,7 @@ const StepThree: React.FC<StepThreeProps> = ({
             value={formData.address}
             onChange={handleInputChange}
             className={`
-              w-full py-3 pl-10 pr-3 border rounded-md focus:outline-none focus:ring-2
+              w-full py-3 pl-10 pr-3 border rounded-md focus:outline-hidden focus:ring-2
               ${errors.address ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-secondary focus:ring-opacity-50'}
             `}
           />
@@ -62,7 +62,7 @@ const StepThree: React.FC<StepThreeProps> = ({
             value={formData.city}
             onChange={handleInputChange}
             className={`
-              w-full py-3 pl-10 pr-3 border rounded-md focus:outline-none focus:ring-2
+              w-full py-3 pl-10 pr-3 border rounded-md focus:outline-hidden focus:ring-2
               ${errors.city ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-secondary focus:ring-opacity-50'}
             `}
           />
@@ -88,7 +88,7 @@ const StepThree: React.FC<StepThreeProps> = ({
             value={formData.houseNumber}
             onChange={handleInputChange}
             className={`
-              w-full py-3 pl-10 pr-3 border rounded-md focus:outline-none focus:ring-2
+              w-full py-3 pl-10 pr-3 border rounded-md focus:outline-hidden focus:ring-2
               ${errors.houseNumber ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-secondary focus:ring-opacity-50'}
             `}
           />

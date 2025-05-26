@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
           backgroundPosition: '50% 60%'
         }}
       >
-        <div className="absolute inset-0 bg-primary bg-opacity-60"></div>
+        <div className="absolute inset-0 bg-primary opacity-60"></div>
       </div>
 
       <div className="container mx-auto px-4 z-10 text-white">
@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <div className="flex flex-col sm:flex-row gap-4">
-              <div className="flex-grow relative">
+              <div className="grow relative">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                   <MapPin size={20} className="text-gray-400" />
                 </div>
@@ -85,7 +85,7 @@ const Hero: React.FC = () => {
                     setPostalCode(e.target.value);
                     setError('');
                   }}
-                  className="w-full pl-12 pr-4 py-4 rounded-md bg-white border-white border-2 bg-opacity-90 text-primary placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary"
+                  className="w-full pl-12 pr-4 py-4 rounded-md bg-white border-white border-2 opacity-90 text-primary placeholder-gray-500 focus:outline-hidden focus:ring-2 focus:ring-secondary"
                   maxLength={5}
                 />
                 {error && (

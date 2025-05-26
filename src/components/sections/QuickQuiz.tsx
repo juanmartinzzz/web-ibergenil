@@ -125,7 +125,7 @@ const QuickQuiz: React.FC = () => {
                   key={option.id}
                   className={`w-full text-left p-4 rounded-lg border-2 transition-all flex justify-between items-center ${
                     answers[questions[currentQuestion].id] === option.id
-                      ? 'border-secondary bg-secondary bg-opacity-10'
+                      ? 'border-secondary bg-secondary opacity-10'
                       : 'border-gray-200 hover:border-secondary'
                   }`}
                   onClick={() => handleAnswer(questions[currentQuestion].id, option.id, option.value)}

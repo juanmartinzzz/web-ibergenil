@@ -36,7 +36,7 @@ const StepTwo: React.FC<StepTwoProps> = ({
             value={formData.name}
             onChange={handleInputChange}
             className={`
-              w-full py-3 pl-10 pr-3 border rounded-md focus:outline-none focus:ring-2
+              w-full py-3 pl-10 pr-3 border rounded-md focus:outline-hidden focus:ring-2
               ${errors.name ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-secondary focus:ring-opacity-50'}
             `}
           />
@@ -62,7 +62,7 @@ const StepTwo: React.FC<StepTwoProps> = ({
             value={formData.phoneNumber}
             onChange={handleInputChange}
             className={`
-              w-full py-3 pl-10 pr-3 border rounded-md focus:outline-none focus:ring-2
+              w-full py-3 pl-10 pr-3 border rounded-md focus:outline-hidden focus:ring-2
               ${errors.phoneNumber ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-secondary focus:ring-opacity-50'}
             `}
             maxLength={9}
@@ -82,7 +82,7 @@ const StepTwo: React.FC<StepTwoProps> = ({
               type="checkbox"
               checked={formData.consentGiven}
               onChange={handleInputChange}
-              className="h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary"
+              className="h-4 w-4 text-secondary border-gray-300 rounded-sm focus:ring-secondary"
             />
           </div>
           <div className="ml-3">
@@ -120,7 +120,7 @@ const StepTwo: React.FC<StepTwoProps> = ({
       </div>
 
       <div className="mt-6 flex items-start p-4 bg-blue-50 rounded-md">
-        <Info size={20} className="text-primary mt-0.5 mr-3 flex-shrink-0" />
+        <Info size={20} className="text-primary mt-0.5 mr-3 shrink-0" />
         <p className="text-sm text-gray-600">
           Tus datos están seguros y solo serán utilizados para contactarte sobre soluciones de energía solar. Nunca compartiremos tus datos con terceros.
         </p>

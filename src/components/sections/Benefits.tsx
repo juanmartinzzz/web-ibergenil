@@ -87,7 +87,7 @@ const Benefits: React.FC = () => {
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
-              className="bg-background p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+              className="bg-background p-6 rounded-lg shadow-xs hover:shadow-md transition-shadow"
               variants={item}
             >
               <div className="mb-4">{benefit.icon}</div>

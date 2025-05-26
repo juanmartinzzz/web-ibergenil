@@ -30,14 +30,14 @@ const Confirmation: React.FC<ConfirmationProps> = ({ formData }) => {
         Estamos emocionados de ayudarte a comenzar tu viaje hacia la energía solar!
       </p>
 
-      <div className="bg-primary bg-opacity-5 rounded-lg p-6 mb-8">
+      <div className="bg-primary opacity-5 rounded-lg p-6 mb-8">
         <h4 className="font-montserrat font-medium text-lg mb-4 text-primary">
           ¿Qué pasa a continuación?
         </h4>
 
         <div className="space-y-4 text-left">
           <div className="flex items-start">
-            <Phone size={24} className="text-secondary mr-3 mt-0.5 flex-shrink-0" />
+            <Phone size={24} className="text-secondary mr-3 mt-0.5 shrink-0" />
             <div>
               <p className="font-medium text-gray-800">Nos pondremos en contacto contigo pronto</p>
               <p className="text-sm text-gray-600">
@@ -47,7 +47,7 @@ const Confirmation: React.FC<ConfirmationProps> = ({ formData }) => {
           </div>
 
           <div className="flex items-start">
-            <Calendar size={24} className="text-secondary mr-3 mt-0.5 flex-shrink-0" />
+            <Calendar size={24} className="text-secondary mr-3 mt-0.5 shrink-0" />
             <div>
               <p className="font-medium text-gray-800">Programa tu evaluación</p>
               <p className="text-sm text-gray-600">
