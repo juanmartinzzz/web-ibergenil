@@ -26,8 +26,9 @@ export interface QuizQuestion {
   options: {
     id: string;
     text: string;
-    value: number;
+    isCorrect?: boolean;
   }[];
+  funFact?: string;
 }
 
 export interface TestimonialItem {

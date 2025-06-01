@@ -1,6 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, MapPin } from 'lucide-react';
+import heroBg1 from '../../assets/images/heroBg1.jpg';
+import heroBg2 from '../../assets/images/heroBg2.jpg';
+
+const RenderAListOfImagesInElementBackgroundEveryNSecondsAndBlurTheElementBetweenEachImage = ({imageUrls, intervalInMilliseconds, blurAmount}: {imageUrls: string[], intervalInMilliseconds: number, blurAmount: number}) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [shouldBlur, setShouldBlur] = useState(false);
+  const [shouldBeTransparent, setShouldBeTransparent] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
+
+      setShouldBlur(true);
+      setShouldBeTransparent(true);
+      setTimeout(() => {
+        setShouldBlur(false);
+      }, 800);
+      setTimeout(() => {
+        setShouldBeTransparent(false);
+      }, 1900);
+    }, intervalInMilliseconds);
+
+    return () => clearInterval(interval);
+  }, [imageUrls, intervalInMilliseconds]);
+
+  return (
+    <div
+      className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+      style={{
+        filter: `blur(${shouldBlur ? blurAmount : 0}px)`,
+        transition: 'filter 0.6s ease-out',
+        backgroundImage: `url(${imageUrls[currentImageIndex]})`
+      }}
+    >
+      <div className="absolute inset-0 bg-primary" style={{ filter: `opacity(${shouldBeTransparent ? 0 : 0.7})`, transition: 'filter 1.9s ease-in' }}></div>
+    </div>
+  );
+};
 
 const Hero: React.FC = () => {
   const [postalCode, setPostalCode] = useState('');
@@ -33,35 +71,37 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative h-[80vh] flex items-center">
-      <div
+      {/* <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(https://images.pexels.com/photos/159397/solar-panel-array-power-sun-electricity-159397.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)',
+          backgroundImage: `url(${heroBg1})`,
           backgroundPosition: '50% 60%'
         }}
       >
         <div className="absolute inset-0 bg-primary opacity-60"></div>
-      </div>
+      </div> */}
+
+      <RenderAListOfImagesInElementBackgroundEveryNSecondsAndBlurTheElementBetweenEachImage imageUrls={[heroBg1, heroBg2]} intervalInMilliseconds={8000} blurAmount={12} />
 
       <div className="container mx-auto px-4 z-10 text-white">
         <div className="max-w-3xl">
           <motion.h1
-            className="font-montserrat font-semibold text-4xl md:text-5xl lg:text-6xl mb-6"
+            className="font-montserrat font-semibold text-4xl md:text-5xl lg:text-6xl mb-6 text-shadow-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Aprovecha el poder de la energía solar para tu hogar
+            Aprovecha el poder de la energía solar para tu hogar o negocio
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl mb-8 text-gray-100"
+            className="text-xl md:text-2xl mb-8 text-gray-100 text-shadow-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             Muchos no saben si su casa o negocio es compatible con instalaciones solares.
-            Te lo chequeamos gratis y sin compromiso!
+            Te ayudaremos sin ningún compromiso!
           </motion.p>
 
           <motion.form

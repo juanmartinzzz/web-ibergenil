@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="font-montserrat font-semibold text-xl mb-4">Ibergenil Solar</h3>
+            <h3 className="font-montserrat font-semibold text-xl mb-4">Ibergenil Energy</h3>
             <p className="text-gray-300 mb-4">
               Liderando el camino en soluciones de energía solar para hogares y negocios en España.
             </p>

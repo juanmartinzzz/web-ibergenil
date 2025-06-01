@@ -26,7 +26,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center space-x-2">
             <Sun size={32} className={`${isScrolled ? 'text-secondary' : 'text-primary'}`} />
-            <span className="font-montserrat font-semibold text-xl">Ibergenil Solar</span>
+            <span className="font-montserrat font-semibold text-xl">Ibergenil Energy</span>
           </Link>
 
           {/* Desktop Navigation */}

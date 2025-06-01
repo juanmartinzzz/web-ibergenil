@@ -61,7 +61,7 @@ const CustomerGallery: React.FC = () => {
           </h2>
           <div className="w-20 h-1 bg-secondary mx-auto mb-6"></div>
           <p className="max-w-2xl mx-auto text-lg text-gray-600">
-            Escucha a nuestros clientes satisfechos sobre su experiencia con Ibergenil <Sun size={24} className="inline-block text-secondary" />
+            Escucha a nuestros clientes satisfechos sobre su experiencia con Ibergenil Energy <Sun size={24} className="inline-block text-secondary" />
           </p>
         </div>
 

@@ -35,12 +35,12 @@ const Benefits: React.FC = () => {
     {
       icon: <Sparkles size={40} className="text-secondary" />,
       title: "Bajos costos de mantenimiento",
-      description: "Los paneles solares requieren un mantenimiento mínimo y suelen durar 25-30 años."
+      description: "Los paneles solares requieren un mantenimiento mínimo, y duran 25 años con un máximo de eficiencia, y su vida útil es mucho más larga."
     },
     {
       icon: <Home size={40} className="text-secondary" />,
       title: "Incentivos gubernamentales",
-      description: "Aprovecha los créditos fiscales y rebajas disponibles para instalaciones de energía solar."
+      description: "Aprovecha los beneficios fiscales y bonificaciones disponibles para instalaciones de energía solar."
     },
     {
       icon: <ThumbsUp size={40} className="text-secondary" />,
