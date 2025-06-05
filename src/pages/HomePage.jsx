@@ -4,6 +4,7 @@ import QuickQuiz from '../components/sections/QuickQuiz';
 import LinksToSocials from '../components/LinksToSocials';
 import MultiStepForm from '../components/form/MultiStepForm';
 import ContestTerms from '../components/sections/ContestTerms';
+import TermsOfService from '../components/sections/TermsOfService';
 import CustomerGallery from '../components/sections/CustomerGallery';
 
 const HomePage = () => {
@@ -30,6 +31,8 @@ const HomePage = () => {
       <CustomerGallery />
 
       <ContestTerms />
+
+      <TermsOfService />
     </div>
   );
 };

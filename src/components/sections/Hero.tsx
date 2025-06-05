@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, MapPin } from 'lucide-react';
 import heroBg1 from '../../assets/images/heroBg1.jpg';
 import heroBg2 from '../../assets/images/heroBg2.jpg';
+import logoTransparent from '../../assets/images/logoTransparent.png';
 
 const RenderAListOfImagesInElementBackgroundEveryNSecondsAndBlurTheElementBetweenEachImage = ({imageUrls, intervalInMilliseconds, blurAmount}: {imageUrls: string[], intervalInMilliseconds: number, blurAmount: number}) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -78,69 +79,80 @@ const Hero: React.FC = () => {
       />
 
       <div className="container mx-auto px-4 z-10 text-white">
-        <div className="max-w-3xl">
-          <motion.h1
-            className="font-montserrat font-semibold text-4xl md:text-5xl lg:text-6xl mb-6 text-shadow-lg"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            Aprovecha el poder de la energía solar para tu hogar o negocio
-          </motion.h1>
+        <div className="grid grid-cols-3">
+          <div className="col-span-2">
+            <motion.h1
+              className="font-montserrat font-semibold text-4xl md:text-5xl lg:text-6xl mb-6 text-shadow-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              Aprovecha el poder de la energía solar para tu hogar o negocio
+            </motion.h1>
 
-          <motion.p
-            className="text-xl md:text-2xl mb-8 text-gray-100 text-shadow-lg"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Muchos no saben si su casa o negocio es compatible con instalaciones solares.
-            Te ayudaremos sin ningún compromiso!
-          </motion.p>
+            <motion.p
+              className="text-xl md:text-2xl mb-8 text-gray-100 text-shadow-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Muchos no saben si su casa o negocio es compatible con instalaciones solares.
+              Te ayudaremos sin ningún compromiso!
+            </motion.p>
 
-          <motion.form
-            onSubmit={handleSubmit}
-            className="max-w-lg"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <div className="flex flex-col sm:flex-row gap-4">
-              <div className="grow relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <MapPin size={20} className="text-gray-400" />
+            <motion.form
+              onSubmit={handleSubmit}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <div className="flex flex-col sm:flex-row gap-4">
+                <div className="grow relative">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <MapPin size={20} className="text-gray-400" />
+                  </div>
+
+                  <input
+                    type="text"
+                    placeholder="Código postal"
+                    value={postalCode}
+                    onChange={(e) => {
+                      setPostalCode(e.target.value);
+                      setError('');
+                    }}
+                    className="w-full pl-12 pr-4 py-4 rounded-md bg-white border-white border-2 opacity-90 text-primary placeholder-gray-500 focus:outline-hidden focus:ring-2 focus:ring-secondary"
+                    maxLength={5}
+                  />
+
+                  {error && (
+                    <p className="absolute -bottom-6 left-0 text-red-300 text-sm">
+                      {error}
+                    </p>
+                  )}
                 </div>
 
-                <input
-                  type="text"
-                  placeholder="Código postal"
-                  value={postalCode}
-                  onChange={(e) => {
-                    setPostalCode(e.target.value);
-                    setError('');
-                  }}
-                  className="w-full pl-12 pr-4 py-4 rounded-md bg-white border-white border-2 opacity-90 text-primary placeholder-gray-500 focus:outline-hidden focus:ring-2 focus:ring-secondary"
-                  maxLength={5}
-                />
+                <motion.button
+                  type="submit"
+                  className="bg-secondary hover:bg-secondary-dark text-white font-montserrat font-medium px-8 py-4 rounded-md shadow-lg text-lg flex items-center justify-center whitespace-nowrap"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span>Revisa tu disponibilidad</span>
 
-                {error && (
-                  <p className="absolute -bottom-6 left-0 text-red-300 text-sm">
-                    {error}
-                  </p>
-                )}
+                  <ArrowRight size={20} className="ml-2" />
+                </motion.button>
               </div>
-              <motion.button
-                type="submit"
-                className="bg-secondary hover:bg-secondary-dark text-white font-montserrat font-medium px-8 py-4 rounded-md shadow-lg text-lg flex items-center justify-center whitespace-nowrap"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span>Revisa tu disponibilidad</span>
+            </motion.form>
+          </div>
 
-                <ArrowRight size={20} className="ml-2" />
-              </motion.button>
-            </div>
-          </motion.form>
+          <motion.div
+            className="col-span-1 flex items-center justify-center"
+            initial={{ opacity: 0, scale: 0.06 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.9, delay: 0.3 }}
+          >
+            <img src={logoTransparent} alt="Hero" className="w-90 object-cover bg-white/90 rounded-full" />
+          </motion.div>
         </div>
       </div>
     </section>
