@@ -70,18 +70,12 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative h-[80vh] flex items-center">
-      {/* <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url(${heroBg1})`,
-          backgroundPosition: '50% 60%'
-        }}
-      >
-        <div className="absolute inset-0 bg-primary opacity-60"></div>
-      </div> */}
-
-      <RenderAListOfImagesInElementBackgroundEveryNSecondsAndBlurTheElementBetweenEachImage imageUrls={[heroBg1, heroBg2]} intervalInMilliseconds={8000} blurAmount={12} />
+    <section id="hero" className="relative h-[80vh] flex items-center">
+      <RenderAListOfImagesInElementBackgroundEveryNSecondsAndBlurTheElementBetweenEachImage
+        imageUrls={[heroBg1, heroBg2]}
+        intervalInMilliseconds={8000}
+        blurAmount={12}
+      />
 
       <div className="container mx-auto px-4 z-10 text-white">
         <div className="max-w-3xl">
@@ -128,6 +122,7 @@ const Hero: React.FC = () => {
                   className="w-full pl-12 pr-4 py-4 rounded-md bg-white border-white border-2 opacity-90 text-primary placeholder-gray-500 focus:outline-hidden focus:ring-2 focus:ring-secondary"
                   maxLength={5}
                 />
+
                 {error && (
                   <p className="absolute -bottom-6 left-0 text-red-300 text-sm">
                     {error}
@@ -141,6 +136,7 @@ const Hero: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <span>Revisa tu disponibilidad</span>
+
                 <ArrowRight size={20} className="ml-2" />
               </motion.button>
             </div>

@@ -32,7 +32,7 @@ const CustomerGallery: React.FC = () => {
       id: 4,
       name: "Javier López",
       location: "Granada",
-      comment: "El conocimiento y la experiencia del equipo de Ibergenil son impresionantes. Respudieron todas mis preguntas y diseñaron un sistema que perfectamente cumple con las necesidades de energía de mi hogar.",
+      comment: "El conocimiento y la experiencia del equipo de Ibergenil son impresionantes. Respondieron todas mis preguntas y diseñaron un sistema que perfectamente cumple con las necesidades de energía de mi hogar.",
       imageSrc: "https://images.pexels.com/photos/9393860/pexels-photo-9393860.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       rating: 5
     }

@@ -1,12 +1,12 @@
-import React from 'react';
 import Hero from '../components/sections/Hero';
-import MultiStepForm from '../components/form/MultiStepForm';
-import CustomerGallery from '../components/sections/CustomerGallery';
-import QuickQuiz from '../components/sections/QuickQuiz';
 import Benefits from '../components/sections/Benefits';
+import QuickQuiz from '../components/sections/QuickQuiz';
+import LinksToSocials from '../components/LinksToSocials';
+import MultiStepForm from '../components/form/MultiStepForm';
 import ContestTerms from '../components/sections/ContestTerms';
+import CustomerGallery from '../components/sections/CustomerGallery';
 
-const HomePage: React.FC = () => {
+const HomePage = () => {
   return (
     <div>
       <Hero />
@@ -22,6 +22,8 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <LinksToSocials />
 
       <Benefits />
 

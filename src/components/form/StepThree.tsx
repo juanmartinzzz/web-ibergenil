@@ -107,8 +107,10 @@ const StepThree: React.FC<StepThreeProps> = ({
           whileTap={{ scale: 0.98 }}
         >
           <ArrowLeft size={18} />
+
           <span>Atrás</span>
         </motion.button>
+
         <motion.button
           type="submit"
           onClick={handleSubmit}

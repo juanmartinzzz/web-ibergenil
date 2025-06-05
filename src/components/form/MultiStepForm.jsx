@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FormData, FormErrors, FormStep } from '../../types';
 import StepOne from './StepOne';
 import StepTwo from './StepTwo';
 import StepThree from './StepThree';
 import Confirmation from './Confirmation';
 import FormProgress from './FormProgress';
+import remote from '../../integrations/supabase';
 
-const MultiStepForm: React.FC = () => {
-  const [currentStep, setCurrentStep] = useState<FormStep>(1);
-  const [formData, setFormData] = useState<FormData>({
+const MultiStepForm = () => {
+  const [currentStep, setCurrentStep] = useState(1);
+  const [formData, setFormData] = useState({
     postalCode: '',
     name: '',
     phoneNumber: '',
@@ -19,13 +19,13 @@ const MultiStepForm: React.FC = () => {
     houseNumber: ''
   });
 
-  const [errors, setErrors] = useState<FormErrors>({});
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     const formElement = document.getElementById('solar-form');
     if (formElement) {
-      const handlePostalCode = (event: Event) => {
-        const customEvent = event as CustomEvent;
+      const handlePostalCode = (event) => {
+        const customEvent = event;
         setFormData(prev => ({
           ...prev,
           postalCode: customEvent.detail.postalCode
@@ -42,8 +42,8 @@ const MultiStepForm: React.FC = () => {
     }
   }, []);
 
-  const validateStep = (step: FormStep): boolean => {
-    const newErrors: FormErrors = {};
+  const validateStep = (step) => {
+    const newErrors = {};
     let isValid = true;
 
     switch (step) {
@@ -101,22 +101,22 @@ const MultiStepForm: React.FC = () => {
 
   const handleNext = () => {
     if (validateStep(currentStep)) {
-      setCurrentStep(prev => (prev < 4 ? (prev + 1) as FormStep : prev));
+      setCurrentStep(prev => (prev < 4 ? (prev + 1) : prev));
     }
   };
 
   const handleBack = () => {
-    setCurrentStep(prev => (prev > 1 ? (prev - 1) as FormStep : prev));
+    setCurrentStep(prev => (prev > 1 ? (prev - 1) : prev));
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value
     }));
 
-    if (errors[name as keyof FormErrors]) {
+    if (errors[name]) {
       setErrors(prev => ({
         ...prev,
         [name]: undefined
@@ -124,16 +124,17 @@ const MultiStepForm: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (validateStep(currentStep)) {
-      if (currentStep < 4) {
+      if (currentStep < 3) {
         handleNext();
       } else {
-        // Here you would typically send the data to your backend
-        console.log('Form submitted:', formData);
-        // For now, we just move to the confirmation step
+        // Store data on remote
+        remote.upsertCustomerRequestData({customerRequestData: {data: formData}})
+
+        // Show confirmation message
         handleNext();
       }
     }

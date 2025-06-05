@@ -93,19 +93,25 @@ const Footer: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-start">
                 <MapPin size={20} className="mt-1 mr-2 text-secondary" />
+
                 <p className="text-gray-300">
-                  C/ de la Energía Solar, 123<br />
-                  Granada, España
+                  Avenida del sur 17 planta 0 bajo 2
+                  <br />
+                  CP: 18014, Granada
                 </p>
               </div>
+
               <div className="flex items-center">
                 <Phone size={20} className="mr-2 text-secondary" />
-                <a href="tel:+34900123456" className="text-gray-300 hover:text-secondary transition-colors">
-                  +34 900 123 456
+
+                <a href="tel:+34602038945" className="text-gray-300 hover:text-secondary transition-colors">
+                  +34 602 038 945
                 </a>
               </div>
+
               <div className="flex items-center">
                 <Mail size={20} className="mr-2 text-secondary" />
+
                 <a href="mailto:info@ibergenil.com" className="text-gray-300 hover:text-secondary transition-colors">
                   info@ibergenil.com
                 </a>
