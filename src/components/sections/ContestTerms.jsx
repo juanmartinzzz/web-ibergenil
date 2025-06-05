@@ -24,19 +24,14 @@ const ContestTerms = () => {
   if (!contestData) return null;
 
   return (
-    <div className="bg-gray-50 py-12 mt-12">
+    <div className="bg-gray-50 py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="w-full text-left group transition-all duration-300"
+            className="w-full text-left group transition-all duration-300 cursor-pointer"
           >
-            <div className="flex justify-between items-center bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-all">
-              <h2 className="text-2xl font-bold text-gray-900">Términos y condiciones de nuestro concurso</h2>
-              <ChevronDown
-                className={`w-8 h-8 text-yellow-500 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
-              />
-            </div>
+            <h2 className="text-sm text-gray-500">Bases del sorteo. <span className="text-secondary">Haz click para ver más.</span></h2>
           </button>
 
           {isExpanded && (

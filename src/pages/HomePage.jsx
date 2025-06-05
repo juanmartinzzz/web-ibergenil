@@ -26,13 +26,13 @@ const HomePage = () => {
 
       <LinksToSocials />
 
-      <Benefits />
-
       <CustomerGallery />
 
-      <ContestTerms />
+      <Benefits />
 
       <TermsOfService />
+
+      <ContestTerms />
     </div>
   );
 };
