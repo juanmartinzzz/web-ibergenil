@@ -31,7 +31,7 @@ const ContestTerms = () => {
             onClick={() => setIsExpanded(!isExpanded)}
             className="w-full text-left group transition-all duration-300 cursor-pointer"
           >
-            <h2 className="text-sm text-gray-500">Bases del sorteo. <span className="text-secondary">Haz click para ver más.</span></h2>
+            <h2 className="text-sm text-gray-500">Bases del sorteo.</h2>
           </button>
 
           {isExpanded && (
