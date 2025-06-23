@@ -6,7 +6,7 @@ import HashLink from '../interaction/HashLink';
 const CustomerGallery = () => {
   const testimonials = [
     {
-      id: 1,
+      id: 101,
       name: "Pablo",
       location: "Granada",
       comment: 'Pablo ya tiene energía solar en su casa en Andalucía! "Estupendamente" nos dice Pablo, después de que su instalación quedó completada.',
@@ -15,16 +15,43 @@ const CustomerGallery = () => {
       youtubeEmbedUrl: "https://www.youtube.com/embed/1Oh-WoE_pcQ",
     },
     {
-      id: 2,
-      name: "Juan Manuel Gonzalez Fernandez",
+      id: 102,
+      name: "Juan Manuel",
       location: "Granada",
-      comment: "Yo recomiendo a ibergenil , porque dan buen servicio despues de la venta y me ayudaron mucho a bajar la mi factura de luz y la instalación se quedó perfecta",
+      comment: 'Juan Manuel nos cuenta cómo fue su experiencia instalando paneles solares en su tejado y por qué ahora está más que contento con el ahorro y el servicio recibido.',
+      // imageSrc: "https://images.pexels.com/photos/9800027/pexels-photo-9800027.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      rating: 5,
+      youtubeEmbedUrl: "https://www.youtube.com/embed/b5UNQdjzcDc",
+    },
+    {
+      id: 103,
+      name: "Mari",
+      location: "Almería",
+      comment: 'Ella pagaba un dineral en luz, hasta que su vecino le habló de Ibergenil. Instaló paneles, luego una batería… y ahora ahorra cada mes y está feliz ⚡☀️',
+      // imageSrc: "https://images.pexels.com/photos/9800027/pexels-photo-9800027.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      rating: 5,
+      youtubeEmbedUrl: "https://www.youtube.com/embed/laEr0R_TYuQ",
+    },
+    {
+      id: 201,
+      name: "Maryuris De Aguas",
+      location: "Granada",
+      comment: "La atención ha sido excelente Han sido rápidos, eficientes y muy amables. Me han resuelto todas mis dudas y han gestionado la instalación sin ningún problema. ¡Lo recomiendo!",
       // imageSrc: "https://images.pexels.com/photos/4506224/pexels-photo-4506224.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       rating: 5,
       googleReviewUrl: "https://maps.app.goo.gl/gd2W4wVpFVVNH3p3A",
     },
     {
-      id: 3,
+      id: 202,
+      name: "Carlos",
+      location: "Granada",
+      comment: "Trato exquisito del comercial y un producto de altísima calidad.Muy contento en mi caso. Recomendable al cien por cien",
+      // imageSrc: "https://images.pexels.com/photos/4506224/pexels-photo-4506224.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      rating: 5,
+      googleReviewUrl: "https://maps.app.goo.gl/gd2W4wVpFVVNH3p3A",
+    },
+    {
+      id: 301,
       name: "Mari Unica",
       location: "Granada",
       comment: "Mi experiencia ha sido muy positiva , responden a cualquier duda y mi factura de la luz ha bajado casi a cero los recomiendo al 100% y después les encargué  la batería 👌👌👌",
@@ -32,15 +59,6 @@ const CustomerGallery = () => {
       rating: 4,
       googleReviewUrl: "https://maps.app.goo.gl/TfcMN7QHzBo2Pgo78",
     },
-    {
-      id: 4,
-      name: "Monica Lopez Ruiz",
-      location: "Granada",
-      comment: "Me sorprendió gratamente la calidad de los productos y la profesionalidad del equipo de instalación. Mi factura de electricidad ha disminuido significativamente gracias a sus placas solares,recomiendo 100% esta empresa.",
-      // imageSrc: "https://images.pexels.com/photos/9393860/pexels-photo-9393860.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      rating: 5,
-      googleReviewUrl: "https://maps.app.goo.gl/TfcMN7QHzBo2Pgo78",
-    }
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -76,13 +94,13 @@ const CustomerGallery = () => {
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.id}
-                className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col h-full"
+                className={`bg-white rounded-md shadow-lg overflow-hidden flex flex-col ${testimonial.youtubeEmbedUrl ? 'h-full' : 'h-fit'}`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className={'relative aspect-[9/16]'}>
+                <div className={`${testimonial.youtubeEmbedUrl ? 'aspect-[9/16]' : ''}`}>
                   {testimonial.youtubeEmbedUrl && (
                     <iframe
                       src={testimonial.youtubeEmbedUrl}
@@ -103,11 +121,11 @@ const CustomerGallery = () => {
                   )}
 
                   {testimonial.googleReviewUrl && (
-                    <div className='pt-[256px]'>
+                    <div className='pt-[48px]'>
                       <a href={testimonial.googleReviewUrl} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
-                        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Reviews" className="w-full px-4 -rotate-24" />
+                        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Reviews" className="w-full px-4 -rotate-16" />
 
-                        <div className="text-gray-400 font-bold text-3xl text-center -rotate-24">Reviews</div>
+                        <div className="text-gray-400 font-bold text-3xl text-center -rotate-16">Reviews</div>
                       </a>
                     </div>
                   )}
